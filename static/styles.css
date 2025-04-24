@@ -1,0 +1,353 @@
+:root {
+    --primary: #5af49a;            /* Mint green */
+    --primary-hover: #c7fd91;      /* Light green */
+    --accent: #5ba7ff;             /* Light blue accent */
+    --dark: #111827;               /* Near Black */
+    --light: #f9fafb;              /* Off White */
+    --gray: #6b7280;               /* Medium Gray - accessible on dark backgrounds */
+    --dark-yellow: #1ab409;        /* Dark Green for better contrast */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, var(--dark), #27272a);  /* Using --dark for one side of gradient */
+    color: var(--light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden; /* Allow vertical scrolling but prevent horizontal */
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);  /* Keeping this as black for background overlay */
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6); /* Shadow keeping black */
+    padding: 40px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Keeping white for border transparency */
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, var(--primary), var(--accent));  /* Using variables for gradient */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+p.subtitle {
+    color: var(--gray);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+}
+
+form {
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 24px;
+    background-color: rgba(15, 15, 15, 0.6);  /* Keeping dark input background */
+    color: var(--light);
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Keeping white for border transparency */
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+input[type="text"]:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(90, 244, 154, 0.4);  /* Using primary color with opacity */
+}
+
+input[type="text"]::placeholder {
+    color: var(--gray);
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 24px;
+    background-color: var(--primary);
+    color: var(--dark);  /* Using dark variable for text */
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 700;
+    box-shadow: 0 10px 15px -3px rgba(90, 244, 154, 0.3); /* Using primary color with opacity */
+}
+
+button[type="submit"]:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+.footer {
+    margin-top: 2rem;
+    color: var(--gray);
+    font-size: 0.875rem;
+}
+
+.logo {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+}
+
+.highlight {
+    color: var(--primary);
+}
+
+/* Styles for the results page */
+.task-container {
+    background-color: rgba(15, 15, 15, 0.6);  /* Keeping dark container */
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Keeping white for border transparency */
+    text-align: left;
+}
+
+.task-title {
+    font-size: 1.2rem;
+    color: var(--gray);
+    margin-bottom: 10px;
+}
+
+.task-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--light);
+}
+
+.reasons-container {
+    background-color: rgba(15, 15, 15, 0.6);  /* Keeping dark container */
+    border-radius: 12px;
+    padding: 30px;
+    margin: 20px 0;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Keeping white for border transparency */
+    text-align: left;
+}
+
+.reasons {
+    color: var(--primary);  /* Using primary color instead of hard-coded light yellow */
+    font-size: 24px;
+    line-height: 1.6;
+    white-space: pre-line;
+}
+
+.reason-item {
+    margin-bottom: 1.5rem;
+    padding-left: 30px;
+    position: relative;
+}
+
+.reason-item:before {
+    content: "🕒";
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.reason-item:nth-child(2):before {
+    content: "🛋️";
+}
+
+.reason-item:nth-child(3):before {
+    content: "✨";
+}
+
+.back-button {
+    display: inline-block;
+    padding: 16px 30px;
+    font-size: 18px;
+    background-color: var(--primary);
+    color: var(--dark);  /* Using dark variable for text */
+    border: none;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 700;
+    box-shadow: 0 10px 15px -3px rgba(90, 244, 154, 0.3); /* Using primary color with opacity */
+}
+
+.back-button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.back-button:active {
+    transform: translateY(0);
+}
+
+.banana-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* Define banana elements using pseudo-elements */
+.banana-background::before,
+.banana-background::after,
+.banana-background span::before,
+.banana-background span::after {
+    content: "🐌";
+    position: absolute;
+    font-size: 60px;
+    opacity: 0.5;
+    filter: blur(1px);
+    z-index: -1;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* Define animation keyframes - more pronounced movement */
+@keyframes float1 {
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 0.3; }
+    100% { transform: translate(40px, -60px) rotate(15deg); opacity: 0.6; }
+}
+
+@keyframes float2 {
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 0.4; }
+    100% { transform: translate(-35px, -45px) rotate(-12deg); opacity: 0.7; }
+}
+
+@keyframes float3 {
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 0.3; }
+    100% { transform: translate(30px, -70px) rotate(10deg); opacity: 0.6; }
+}
+
+@keyframes float4 {
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 0.5; }
+    100% { transform: translate(-50px, -40px) rotate(-18deg); opacity: 0.7; }
+}
+
+/* Tech-inspired glow effect */
+@keyframes techGlow {
+    0% { text-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary); }
+    50% { text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 30px var(--accent); }
+    100% { text-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary); }
+}
+
+/* Create multiple banana positions using the :before and :after pseudo-elements */
+.banana-background::before {
+    top: 10%;
+    left: 10%;
+    animation: float1 5s infinite alternate, techGlow 4s infinite;
+}
+
+.banana-background::after {
+    top: 70%;
+    left: 80%;
+    animation: float2 5.5s infinite alternate;
+}
+
+/* Add more bananas using spans */
+.banana-background span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.banana-background span:nth-child(1)::before {
+    top: 20%;
+    left: 30%;
+    animation: float3 4s infinite alternate, techGlow 6s infinite;
+}
+
+.banana-background span:nth-child(1)::after {
+    top: 60%;
+    left: 40%;
+    animation: float4 6s infinite alternate;
+}
+
+.banana-background span:nth-child(2)::before {
+    top: 30%;
+    left: 70%;
+    animation: float2 6.5s infinite alternate, techGlow 5s infinite;
+}
+
+.banana-background span:nth-child(2)::after {
+    top: 80%;
+    left: 15%;
+    animation: float1 5.5s infinite alternate;
+}
+
+.banana-background span:nth-child(3)::before {
+    top: 50%;
+    left: 60%;
+    animation: float4 4.5s infinite alternate;
+}
+
+.banana-background span:nth-child(3)::after {
+    top: 15%;
+    left: 85%;
+    animation: float3 7s infinite alternate, techGlow 7s infinite;
+}
+
+.banana-background span:nth-child(4)::before {
+    top: 75%;
+    left: 50%;
+    animation: float1 6s infinite alternate;
+}
+
+.banana-background span:nth-child(4)::after {
+    top: 40%;
+    left: 20%;
+    animation: float2 4s infinite alternate, techGlow 8s infinite;
+}
+
+/* Add more bananas with different positions and animations */
+.banana-background span:nth-child(5)::before {
+    top: 5%;
+    left: 45%;
+    animation: float3 5s infinite alternate;
+}
+
+.banana-background span:nth-child(5)::after {
+    top: 65%;
+    left: 75%;
+    animation: float4 6.5s infinite alternate, techGlow 6s infinite;
+}
+
+/* Additional tech-inspired effects for some bananas */
+.banana-background span:nth-child(3)::before,
+.banana-background span:nth-child(5)::after {
+    filter: hue-rotate(30deg) brightness(1.2);
+}
